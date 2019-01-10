@@ -22,7 +22,7 @@ Mexi<-function(myname = ""){
   #                      select fecha, hora, precio_zonal from
   #                             sumex.pndmda
   #                             where zona_carga = 'MEXICALI' order by
-fecha, hora")
+  #fecha, hora")
   #close(channel)
   db_user <- 'root'
   db_password <- 'sa12345678'
