@@ -73,5 +73,8 @@ Mexi<-function(myname = ""){
   }
   forecast<-data.frame(1:24,FORE)
   colnames(forecast)<-c("Hora","Prediccion")
-  return(forecast)
+  #return(forecast)
+  list(
+  message = paste(forecast)
+  )
 }
