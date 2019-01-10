@@ -13,16 +13,34 @@
 #  )
 #}
 
-MMexi<-function(){
-  library(RODBC)
+Mexi<-function(){
+  #library(RODBC)
+  library(RMySQL)
   library(caret)
-  channel <- odbcConnect("sumex")
-  dataframe <- RODBC::sqlQuery(channel, "
-                        select fecha, hora, precio_zonal from
-                               sumex.pndmda
-                               where zona_carga = 'MEXICALI' order by
+  #channel <- odbcConnect("sumex")
+  #dataframe <- RODBC::sqlQuery(channel, "
+  #                      select fecha, hora, precio_zonal from
+  #                             sumex.pndmda
+  #                             where zona_carga = 'MEXICALI' order by
 fecha, hora")
-  close(channel)
+  #close(channel)
+  db_user <- 'root'
+  db_password <- 'sa12345678'
+  db_name <- 'sumex'
+  db_table <- 'pndmda'
+  db_host <- '127.0.0.1' # for local access
+  db_port <- 3306
+
+  # 3. Read data from db
+  mydb <-  dbConnect(MySQL(), user = db_user, password = db_password,
+                     dbname = db_name, host = db_host, port = db_port)
+  s <- paste0("select fecha, hora, precio_zonal from
+                              pndmda
+            where zona_carga = 'MEXICALI' order by fecha, hora")
+  rs <- dbSendQuery(mydb, s)
+  dataframe <-  fetch(rs, n = -1)
+
+  on.exit(dbDisconnect(mydb))
 
   x<-dataframe
   k<-7
