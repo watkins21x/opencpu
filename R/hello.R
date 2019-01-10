@@ -13,7 +13,7 @@
 #  )
 #}
 
-Mexi<-function(){
+Mexi<-function(myname = ""){
   #library(RODBC)
   library(RMySQL)
   library(caret)
