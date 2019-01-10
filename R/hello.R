@@ -13,7 +13,7 @@
 #  )
 #}
 
-Mexi<-function(myname = ""){
+hello<-function(myname = ""){
   #library(RODBC)
   library(RMySQL)
   library(caret)
