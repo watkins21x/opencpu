@@ -26,11 +26,17 @@ hello<-function(myname = ""){
   #                             where zona_carga = 'MEXICALI' order by
   #fecha, hora")
   #close(channel)
+  #db_user <- 'root'
+  #db_password <- 'sa12345678'
+  #db_name <- 'cfe_calificados'
+  #db_table <- 'pndmda'
+  #db_host <- 'calificados.ckli9mh1ttmi.us-east-2.rds.amazonaws.com' # for local access
+  #db_port <- 3306
+  
   db_user <- 'root'
   db_password <- 'sa12345678'
-  db_name <- 'cfe_calificados'
-  db_table <- 'pndmda'
-  db_host <- 'calificados.ckli9mh1ttmi.us-east-2.rds.amazonaws.com' # for local access
+  db_name <- 'sumex'
+  db_host <- '127.0.0.1' # for local access
   db_port <- 3306
 
   # 3. Read data from db
