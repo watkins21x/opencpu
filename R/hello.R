@@ -76,9 +76,9 @@ hello<-function(myname = ""){
   forecast<-data.frame(1:24,FORE)
   colnames(forecast)<-c("Hora","Prediccion")
   #return(forecast)
-  
-    message = paste(forecast)
-
+  list(
+    message = forecast
+  )
 }
 
 
