@@ -18,8 +18,7 @@ hello<-function(myname = ""){
   #library(RODBC)
   library(RMySQL)
   library(caret)
-  library(lattice)
-  library(ggplot2)
+  
   #channel <- odbcConnect("sumex")
   #dataframe <- RODBC::sqlQuery(channel, "
   #                      select fecha, hora, precio_zonal from
@@ -77,9 +76,9 @@ hello<-function(myname = ""){
   forecast<-data.frame(1:24,FORE)
   colnames(forecast)<-c("Hora","Prediccion")
   #return(forecast)
-  list(
+  
     message = forecast
-)
+
 }
 
 
