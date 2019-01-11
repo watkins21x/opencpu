@@ -41,7 +41,7 @@ hello<-function(myname = ""){
 
   # 3. Read data from db
   mydb <-  dbConnect(MySQL(), user = db_user, password = db_password, dbname = db_name, host = db_host, port = db_port)
-  s <- paste0("select fecha, hora, precio_zonal from pnd_mda where zona_carga = 'MEXICALI' order by fecha, hora")
+  s <- paste0("select fecha, hora, precio_zonal from pndmda where zona_carga = 'MEXICALI' order by fecha, hora")
   rs <- dbSendQuery(mydb, s)
   dataframe <-  fetch(rs, n = -1)
 
