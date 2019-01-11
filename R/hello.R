@@ -18,6 +18,8 @@ hello<-function(myname = ""){
   #library(RODBC)
   library(RMySQL)
   library(caret)
+  library(lattice)
+  library(ggplot2)
   #channel <- odbcConnect("sumex")
   #dataframe <- RODBC::sqlQuery(channel, "
   #                      select fecha, hora, precio_zonal from
@@ -40,8 +42,43 @@ hello<-function(myname = ""){
 
   on.exit(dbDisconnect(mydb))
   
+  x<-dataframe
+  k<-7
+  k<-k-1
+
+  FORE<-c()
+  for(j in 1:24){
+    PML <- x$precio_zonal[x$hora==j]
+    n<-length(PML)
+    DataPML <-data.frame()
+    for(i in 1:(n-k)){
+      A<-PML[i:(i+k)]
+      DataPML<-rbind.data.frame(DataPML,A)
+    }
+    Names<-c()
+    for(i in 0:k)
+      Names<-c(paste0('PML',i),Names)
+    colnames(DataPML)<-Names
+    DataPML$PML0[DataPML$PML0<=2000]<-0
+    DataPML$PML0[DataPML$PML0>2000]<-1
+    DataPML$PML0<-factor(DataPML$PML0)
+    training <- DataPML
+    trctrl <- trainControl(method = "repeatedcv", number = 15, repeats = 3)
+    svm_Linear <- train(PML0 ~., data = training, method = "svmLinear",
+                        trControl=trctrl,
+                        preProcess = c("center", "scale"),
+                        tuneLength = 10)
+    abc<-t(data.frame(tail(PML,k)))
+    colnames(abc)<-svm_Linear$coefnames
+    test_pred <- predict(svm_Linear, newdata = abc)
+    #print(test_pred)
+    FORE[j]<-levels(test_pred)[test_pred]
+  }
+  forecast<-data.frame(1:24,FORE)
+  colnames(forecast)<-c("Hora","Prediccion")
+  #return(forecast)
   list(
-    message = paste(dataframe)
+    message = paste(forecast)
 )
 }
 
