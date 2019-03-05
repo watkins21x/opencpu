@@ -36,7 +36,7 @@ hello<-function(myname = ""){
   db_user <- 'root'
   db_password <- 'sa12345678'
   db_name <- 'sumex'
-  db_host <- '192.168.1.82' # for local access
+  db_host <- '192.168.1.53' # for local access
   db_port <- 3306
 
   # 3. Read data from db
