@@ -84,7 +84,6 @@ hello<-function(myname = ""){
   #return(forecast)
   list(
     message = paste(forecast[,1])
-    message2 = paste(forecast[,2])
   )
 }
 
