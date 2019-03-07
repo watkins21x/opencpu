@@ -83,7 +83,7 @@ hello<-function(myname = ""){
   colnames(forecast)<-c("Hora","Prediccion")
   #return(forecast)
   list(
-    message = paste(forecast[,3])
+    message = paste(forecast[2])
   )
 }
 
