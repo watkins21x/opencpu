@@ -21,6 +21,8 @@
                   myname : myname
         }, function(output){
           $("#output").text(output.message);
+          var response = output.message;
+          alert(response);
         });
         
         //if R returns an error, alert the error message
