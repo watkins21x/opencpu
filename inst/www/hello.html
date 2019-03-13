@@ -20,11 +20,42 @@
         var req = ocpu.rpc("hello", {
                   myname : myname
         }, function(output){
-          $("#output").text(output.message);
-          //var response = output.message;
+          //$("#output").text(output.message);
+          var response = output.message;
           //alert(response);
+          var table = document.getElementById("myTable");
+          var row1 = table.insertRow(1);
+          var row2 = table.insertRow(2);
+          var row3 = table.insertRow(3);
+          var row4 = table.insertRow(4);
+          var row5 = table.insertRow(5);
+          var row6 = table.insertRow(6);
+          var row7 = table.insertRow(7);
+          var row8 = table.insertRow(8);
+          var row9 = table.insertRow(9);
+          var row10 = table.insertRow(10);
+          var row11 = table.insertRow(11);
+          var row12 = table.insertRow(12);
+          var row13 = table.insertRow(13);
+          var row14 = table.insertRow(14);
+          var row15 = table.insertRow(15);
+          var row16 = table.insertRow(16);
+          var row17 = table.insertRow(17);
+          var row18 = table.insertRow(18);
+          var row19 = table.insertRow(19);
+          var row20 = table.insertRow(20);
+          var row21 = table.insertRow(21);
+          var row22 = table.insertRow(22);
+          var row23 = table.insertRow(23);
+          var row24 = table.insertRow(24);
           
+          var cell1 = row1.insertCell(0);
           
+          cell1.innerHTML = "1";
+          
+          var cell3 = row2.insertCell(0);
+          
+          cell3.innerHTML = "2";
           
         });
         
@@ -42,13 +73,13 @@
     </script>
     
     <style>
-      #output{
-        height: 10px;
-        width: 10px;
+      /*#output{
+        height: 500px;
+        width: 80px;
         border: 1px solid gray;
         padding: 3px;
         background-color:white;
-      }
+      }*/
       
       #myTable{
         
