@@ -21,8 +21,11 @@
                   myname : myname
         }, function(output){
           $("#output").text(output.message);
-          var response = output.message;
-          alert(response);
+          //var response = output.message;
+          //alert(response);
+          
+          
+          
         });
         
         //if R returns an error, alert the error message
@@ -61,7 +64,15 @@
     <button id="submitbutton" type="button">Obtener</button>
     
     
-    <p id="output"></p>
+    <p id="output">
+    <table id="myTable">
+    <tr>
+      <td>Hora</td>
+      <td>Pronostico</td>
+    </tr>
+    </table>
+    
+    </p>
   
     <br />
     
