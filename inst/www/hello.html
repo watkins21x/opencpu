@@ -19,7 +19,7 @@
         
        $(function(){
        $("#btnExport").click(function(e) {
-       window.open('data:application/vnd.ms-excel,' + $('#myTable').html());
+       window.open('data:application/vnd.ms-excel,' + $('#dvData').html());
        e.preventDefault();
        });
        });
@@ -227,7 +227,7 @@
     
     <div id="dvData">
     
-     <table id="myTable">
+     <table   id="myTable">
      <tr>
        <td>Hora</td>
        <td>Pronostico</td>
