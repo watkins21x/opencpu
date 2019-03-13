@@ -16,6 +16,15 @@
         //read the value for 'myname'
         var myname = $("#namefield").val();
         
+        
+       $(function(){
+       $("#btnExport").click(function(e) {
+       window.open('data:application/vnd.ms-excel,' + $('#dvData').html());
+       e.preventDefault();
+       });
+       });
+
+        
         //perform the request
         var req = ocpu.rpc("hello", {
                   myname : myname
@@ -216,14 +225,18 @@
     <button id="submitbutton" type="button">Obtener</button>
     </p>
     
-    <table id="myTable">
-    <tr>
-      <td>Hora</td>
-      <td>Pronostico</td>
-    </tr>
-    </table>
+    <div id="dvData">
     
+     <table id="myTable">
+     <tr>
+       <td>Hora</td>
+       <td>Pronostico</td>
+     </tr>
+     </table>
     
+    </div>
+      
+    <input type="button" id="btnExport" value="Excel" />
     
     <p id="output">
     </p>
