@@ -22,7 +22,7 @@
         }, function(output){
           //$("#output").text(output.message);
           var response = output.message;
-          //alert(response);
+          alert(response);
           var myArr = Array.from(response);
           
           var table = document.getElementById("myTable");
@@ -101,9 +101,9 @@
     <h1>OpenCPU</h1>
     
     
-    
+    <p>
     <button id="submitbutton" type="button">Obtener</button>
-    <br />
+    </p>
     
     <table id="myTable">
     <tr>
