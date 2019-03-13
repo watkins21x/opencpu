@@ -21,7 +21,7 @@
        $("#btnExport").click(function(e) {
        var tabla = document.getElementById('dvData');
        alert(tabla);
-       tabla = tabla.replace("<table id=\\"myTable\\">", "<table>");
+       //tabla = tabla.replace("<table id=\\"myTable\\">", "<table>");
        window.open('data:application/vnd.ms-excel,' + $(tabla).html());
        //window.open('data:application/vnd.ms-excel,' + $('#dvData').html());
        e.preventDefault();
