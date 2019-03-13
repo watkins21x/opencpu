@@ -20,7 +20,7 @@
         var req = ocpu.rpc("hello", {
                   myname : myname
         }, function(output){
-          $("#output").text(output.message);
+          //$("#output").text(output.message);
           var response = output.message;
           alert(response);
           var table = document.getElementById("myTable");
